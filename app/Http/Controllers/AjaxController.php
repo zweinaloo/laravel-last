@@ -93,7 +93,7 @@ public function addBorrowRecord(){
 		$Borrowrecord->save();
 		//dd($record);
 		//5.书籍库存 +1
-		//2.书籍库存减1.
+		
 		$Book=Book::Find($Borrowrecord->Book_id);
 		$Book->count++;
 		$Book->save();
