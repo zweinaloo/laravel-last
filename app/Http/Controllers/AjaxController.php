@@ -15,7 +15,7 @@ use App\Borrowing_record,App\Return_record;
 use DB;
 class AjaxController extends Controller {
 public function SearchReader(){
-		//Í¨¹ıid»ñÈ¡ÓÃ»§£¬·µ»Ø$dataÓÃ»§ÃûºÍ°à¼¶Ãû³Æ
+		//é€šè¿‡idè·å–ç”¨æˆ·ï¼Œè¿”å›$dataç”¨æˆ·åå’Œç­çº§åç§°
 		$data=null;
 		$reader=Reader::find(Request::input('id'));
 		if($reader){
@@ -26,7 +26,7 @@ public function SearchReader(){
 		//return $reader;
 	}
 public function SearchBook(){
-		//Í¨¹ıid»ñÈ¡ÓÃ»§£¬·µ»Ø$dataÓÃ»§ÃûºÍ°à¼¶Ãû³Æ
+		//é€šè¿‡idè·å–ç”¨æˆ·ï¼Œè¿”å›$dataç”¨æˆ·åå’Œç­çº§åç§°
 		$data=null;
 		$book=Book::find(Request::input('id'));
 		if($book){
@@ -45,10 +45,10 @@ public function SearchBook(){
 	}
 public function addBorrowRecord(){
 		$data=null;
-		//1.Í¨¹ıid²éÑ¯ÓÃ»§È¨ÏŞ£¬»ñµÃ¿É½èÔÄÌìÊı
+		//1.é€šè¿‡idæŸ¥è¯¢ç”¨æˆ·æƒé™ï¼Œè·å¾—å¯å€Ÿé˜…å¤©æ•°
 		$reader=User::Find(Request::input('id'));
 		
-		//2.Êé¼®¿â´æ¼õ1.
+		//2.ä¹¦ç±åº“å­˜å‡1.
 		$Book=Book::Find(Request::input('Bookid'));
 		if($Book->count>0){
 		$Book->count--;
@@ -74,12 +74,12 @@ public function addBorrowRecord(){
 	}
 	public function addReturnRecord(){
 		 $data=null;
-		//1.ĞÂ½¨¹é»¹¶ÔÏó
+		//1.æ–°å»ºå½’è¿˜å¯¹è±¡
 		$Returnrecord= new Return_record;
-		//2.Í¨¹ı$id²éÕÒµ½½èÔÄ¼ÇÂ¼
+		//2.é€šè¿‡$idæŸ¥æ‰¾åˆ°å€Ÿé˜…è®°å½•
 		$Borrowrecord=Borrowing_record::find(Request::input("id"));
 		//dd($Borrowrecord);
-		//3.¸´ÖÆ½èÔÄ¼ÇÂ¼Öµµ½¹é»¹¼ÇÂ¼¶ÔÏó£¬²¢save
+		//3.å¤åˆ¶å€Ÿé˜…è®°å½•å€¼åˆ°å½’è¿˜è®°å½•å¯¹è±¡ï¼Œå¹¶save
 		
 		$Returnrecord->Book_id=$Borrowrecord->Book_id;
 		$Returnrecord->Return_record_reader_id=$Borrowrecord->Borrowing_Record_reader_id;
@@ -87,13 +87,13 @@ public function addBorrowRecord(){
 		$Returnrecord->Return_record_date=Carbon::now();
 		$Returnrecord->Return_record_mark=Auth::user()->name;
 		$Returnrecord->save();
-		//4.ÉèÖÃ½èÔÄ¼ÇÂ¼isreturnÖµÎª1£¨0,Î´¹é»¹£»1£¬ÒÑ¹é»¹£©£¬save
+		//4.è®¾ç½®å€Ÿé˜…è®°å½•isreturnå€¼ä¸º1ï¼ˆ0,æœªå½’è¿˜ï¼›1ï¼Œå·²å½’è¿˜ï¼‰ï¼Œsave
 		
 		$Borrowrecord->isreturn=1;
 		$Borrowrecord->save();
 		//dd($record);
-		//5.Êé¼®¿â´æ +1
-		//2.Êé¼®¿â´æ¼õ1.
+		//5.ä¹¦ç±åº“å­˜ +1
+		//2.ä¹¦ç±åº“å­˜å‡1.
 		$Book=Book::Find($Borrowrecord->Book_id);
 		$Book->count++;
 		$Book->save();
