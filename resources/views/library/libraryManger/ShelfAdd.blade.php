@@ -24,6 +24,7 @@
             </div>
             <div class="widget-body">
               <div class="widget-forms clearfix">
+			  @include('template.error')
                 <form class="form-horizontal" role="form" method="POST" id="form1"  action="/LibraryManger/shelfAdd">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					 <div class="control-group">
@@ -42,7 +43,7 @@
                   <div class="control-group">
                     <label class="control-label">书架名称</label>
                     <div class="controls">
-                      <input class="span7" type="text" name="shelf" placeholder="添加新的图书室名称" >
+                      <input class="span7" type="text" name="shelfname" placeholder="添加新的图书室名称" >
                     
                     </div>
                   </div>

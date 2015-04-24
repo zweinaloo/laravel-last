@@ -23,15 +23,17 @@
               </div>
             </div>
             <div class="widget-body">
+			
               <div class="widget-forms clearfix">
+@include('template.error')
                 <form class="form-horizontal" role="form" method="POST" id="form1"  action="/LibraryManger/roomAdd">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-
+				
                   <div class="control-group">
                     <label class="control-label">图书室名称</label>
                     <div class="controls">
-                      <input class="span7" type="text" name="name" placeholder="添加新的图书室名称" >
+                      <input class="span7" type="text" name="libraryname" placeholder="添加新的图书室名称" >
                     
                     </div>
                   </div>

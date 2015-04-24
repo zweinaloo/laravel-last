@@ -1,11 +1,11 @@
 <?php namespace App\Http\Controllers;
 
 
-use App\Http\Requests;
+use App\Http\Requests\LibraryRequest;
 use App\Http\Controllers\Controller;
 
 
-use Illuminate\Support\Facades\Request;
+
 use App\BookRoom;
 use App\BookShelf;
 
@@ -38,67 +38,70 @@ class LibraryMangerController extends Controller {
 	}
 	//图书室
 	//添加图书室类型
-	public function Add(){
+	public function Add(LibraryRequest $request){
 		$room=new BookRoom;
-		$room->name=Request::input('name');
+		$room->name=$request->libraryname;
+		
 		$room->save();
+		
+		
 		return redirect()->back();
 	}
 	//更新
-	public function Update(){
-		$room= BookRoom::find(Request::input('name'));
-		$room->name=Request::input('changeName');
+	public function Update(LibraryRequest $request){
+		$room= BookRoom::find($request->name);
+		$room->name=$request->libraryname;
 		$room->save();
 		return redirect()->back();
 	}
 	//删除
-	public function Delete(){
-		BookRoom::destroy(Request::input('name'));
+	public function Delete(LibraryRequest $request){
+		BookRoom::destroy($request->name);
 		return redirect()->back();
 	}
 	//入口
 	//
 	//书架
-	public function Add1(){
+	public function Add1(LibraryRequest $request){
 		$shelf=new BookShelf;
-		$shelf->name=Request::input('shelf');
-		$shelf->room_id=Request::input('room');
+		$shelf->name=$request->shelfname;
+		$shelf->room_id=$request->room;
 		//dd($shelf);
 		$shelf->save();
 		return redirect()->back();
 	}
 	//更新
-	public function Update1(){
-		$shelf= BookShelf::find(Request::input('shelf'));
-		$shelf->name=Request::input('changeName');
+	public function Update1(LibraryRequest $request){
+		$shelf= BookShelf::find($request->shelf);
+		$shelf->name=$request->shelfname;
 		$shelf->save();
 		return redirect()->back();
 	}
 	//删除
-	public function Delete1(){
-		BookShelf::destroy(Request::input('shelf'));
+	public function Delete1(LibraryRequest $request){
+		BookShelf::destroy($request->shelf);
 		return redirect()->back();
 	}
-	public function Edit($id){
+	public function Edit($id,LibraryRequest $request){
 	switch ($id)
 		{
 		case "roomAdd":
-		return $this->Add();
+		return $this->Add($request);
 		break;  
 		case "roomUpdate":
-		return $this->Update();
+		return $this->Update($request);
 		break;
 		case "roomDelete":
-		return $this->Delete();
+		return $this->Delete($request);
 		break;
 		case "shelfAdd":
-		return $this->Add1();
+		return $this->Add1($request);
 		break;  
 		case "shelfUpdate":
-		return $this->Update1();
+		return $this->Update1($request);
 		break;
 		case "shelfDelete":
-		return $this->Delete1();
+		return $this->Delete1($request);
 		break;
 		}
 	}
