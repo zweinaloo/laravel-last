@@ -1,4 +1,4 @@
-﻿@extends('library.home')
+@extends('library.home')
 
 @section('mainwindow')
 		 <!--@parent-->
@@ -24,15 +24,15 @@
             </div>
             <div class="widget-body">
               <div class="widget-forms clearfix">
-                <form class="form-horizontal" role="form" method="POST" id="form1"  action="/BookStyle/Add">
+			
+			  @include('template.error')
+			
+				<form class="form-horizontal" role="form" method="POST" id="form1"  action="/BookStyle/Add">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-
                   <div class="control-group">
                     <label class="control-label">类型</label>
                     <div class="controls">
-                      <input class="span7" type="text" name="name" placeholder="类型(Type)" >
-                    
+                      <input class="span7" type="text" name="Booktype" placeholder="类型(Type)" >
                     </div>
                   </div>
                  

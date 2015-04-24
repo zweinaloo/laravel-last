@@ -27,6 +27,7 @@
             </div>
             <div class="widget-body">
               <div class="widget-forms clearfix">
+			
 			  @if (count($errors) > 0)
 						<div class="alert alert-danger">
 							<strong>错误!</strong> 你的输入有些问题.<br><br>
@@ -37,7 +38,7 @@
 							</ul>
 						</div>
 					@endif
-					
+				</div
 					
 					
                 <form class="form-horizontal" role="form" method="POST" action="/User/resetUserInfo">

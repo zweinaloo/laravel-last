@@ -24,6 +24,7 @@
             </div>
             <div class="widget-body">
               <div class="widget-forms clearfix">
+			    @include('template.error')
                 <form class="form-horizontal" role="form" method="POST" id="form1"  action="/BookStyle/Update">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -43,7 +44,7 @@
                   <div class="control-group">
                     <label class="control-label">更改为</label>
                     <div class="controls">
-                      <input class="span7" type="text" name="changeName" placeholder="类型(Type)" >
+                      <input class="span7" type="text" name="Booktype" placeholder="类型(Type)" >
                     
                     </div>
                   </div>

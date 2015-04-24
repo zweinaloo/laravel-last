@@ -83,9 +83,11 @@ Route::group(['prefix'=>'BookFind'],function(){
 //图书类型管理模块 路由//
 Route::group(['prefix'=>'BookStyle'],function(){
 	//读者信息
+	
 	Route::get('/Show/{id}', 'BookStyleController@Show');
-	//Route::get('/', 'UserMangerController@RoleShow');
+	
 	Route::post('/{id}','BookStyleController@Edit');
+
 });
 //图书管&书架信息管理模块 路由//
 Route::group(['prefix'=>'LibraryManger'],function(){
