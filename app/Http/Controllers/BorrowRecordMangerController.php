@@ -27,7 +27,7 @@ class BorrowRecordMangerController extends Controller {
 		break;  
 		
 		default:
-		return '404,Í¯Ğ¬£¬ÄãÃÔÂ·ÁË';
+		return '404,ç«¥é‹ï¼Œä½ è¿·è·¯äº†';
 		}
 	}
 	
@@ -35,8 +35,8 @@ class BorrowRecordMangerController extends Controller {
 	public function SearchRecord(){
 
 		$data=null;$data1=null;
-		//¸ù¾İid ²éÕÒ½èÔÄ¼ÇÂ¼&¹é»¹¼ÇÂ¼
-		//½èÔÄ¼ÇÂ¼
+		//æ ¹æ®id æŸ¥æ‰¾å€Ÿé˜…è®°å½•&å½’è¿˜è®°å½•
+		//å€Ÿé˜…è®°å½•
 		$reader=Reader::Find(Request::input('find'));
 		$data=DB::table('borrowing_record')       
 			->join('readers', function($join){
@@ -53,7 +53,7 @@ class BorrowRecordMangerController extends Controller {
 			->select('*')
 			->get();
 			
-			//¹é»¹¼ÇÂ¼
+			//å½’è¿˜è®°å½•
 		$data1=DB::table('return_record')       
 			->join('readers', function($join){
             $join->on( 'readers.id', '=', 'return_record.Return_record_reader_id')
@@ -68,7 +68,7 @@ class BorrowRecordMangerController extends Controller {
 		->leftjoin('bookroom','bookroom.id','=','bookshelf.room_id')
            ->select('book.*','return_record.*','book_style.*','bookshelf.*','bookroom.*')
 			->get();
-			dd($data);
+			//dd($data);
 		return view('library.borrowRecord.borrowRecordAll')->withData($data)->withData1($data1)->withReader($reader);
 	
 	
@@ -77,8 +77,8 @@ class BorrowRecordMangerController extends Controller {
 	public function SearchRecordSelf(){
 
 		$data=null;$data1=null;
-		//¸ù¾İid ²éÕÒ½èÔÄ¼ÇÂ¼&¹é»¹¼ÇÂ¼
-		//½èÔÄ¼ÇÂ¼
+		//æ ¹æ®id æŸ¥æ‰¾å€Ÿé˜…è®°å½•&å½’è¿˜è®°å½•
+		//å€Ÿé˜…è®°å½•
 		$reader=Reader::Find(Auth::user()->id);
 		$data=DB::table('borrowing_record')       
 			->join('readers', function($join){
@@ -94,7 +94,7 @@ class BorrowRecordMangerController extends Controller {
            ->select('book.*','borrowing_record.*','book_style.*','bookshelf.*','bookroom.*')
 			->get();
 			
-			//¹é»¹¼ÇÂ¼
+			//å½’è¿˜è®°å½•
 		$data1=DB::table('return_record')       
 			->join('readers', function($join){
             $join->on( 'readers.id', '=', 'return_record.Return_record_reader_id')

@@ -99,7 +99,7 @@
               <div class="accordion-inner">
                
                 <a class="accordion-toggle" href="/User/resetUserInfoShow"><i class="icon-edit"></i> 修改个人信息</a>
-   <a class="accordion-toggle" href="/User/show/updatePassword/{{Auth::user()->id}}"><i class="icon-user"></i> 修改个人密码</a>
+   <a class="accordion-toggle" href="/User/show/updatePassword/{{Auth::user()->id}}"><i class="icon-key"></i> 修改个人密码</a>
               </div>
             </div>
           </div>
@@ -111,49 +111,45 @@
           
           <div class="accordion-group">
             <div class="accordion-heading">
-              <a class="accordion-toggle b_C3F7A7 collapsed" data-toggle="collapse" data-parent="#accordion2" href="#BookFind"><i class="icon-magic"></i> <span>查找书籍</span></a>
+              <a class="accordion-toggle b_C3F7A7 collapsed" data-toggle="collapse" data-parent="#accordion2" href="#BookFind"><i class="icon-search"></i> <span>查找书籍</span></a>
             </div>
             <div id="BookFind" class="accordion-body collapse">
               <div class="accordion-inner">
 
-                <a class="accordion-toggle" href="/BookFind/onExact"><i class="icon-table"></i> 精确查找（快速）</a>
-                <a class="accordion-toggle" href="/BookFind/onFuzzy"><i class="icon-circle"></i> 模糊查找（较慢）</a>
+                <a class="accordion-toggle" href="/BookFind/onExact"><i class="icon-search"></i> 精确查找（快速）</a>
+                <a class="accordion-toggle" href="/BookFind/onFuzzy"><i class="icon-search"></i> 模糊查找（较慢）</a>
               </div>
             </div>
           </div>
           <div class="accordion-group">
             <div class="accordion-heading">
-              <a class="accordion-toggle b_9FDDF6 collapsed" data-toggle="collapse" data-parent="#accordion2" href="#BorrowRecord"><i class="icon-reorder"></i> <span>借阅记录</span></a>
+              <a class="accordion-toggle b_9FDDF6 collapsed" data-toggle="collapse" data-parent="#accordion2" href="#BorrowRecord"><i class="icon-list-alt"></i> <span>借阅记录</span></a>
             </div>
             <div id="BorrowRecord" class="accordion-body collapse">
               <div class="accordion-inner">
-                <a class="accordion-toggle" href="/BorrowRecord/SearchRecord/self"><i class="icon-rss"></i> 借阅书籍记录</a>
-               <!-- <a class="accordion-toggle" href="/BorrowRecord/history"><i class="icon-calendar"></i> 历史借阅书籍记录</a>
-                <a class="accordion-toggle" href="/BorrowRecord/all"><i class="icon-picture"></i> 全部借阅历史记录</a>-->
+                <a class="accordion-toggle" href="/BorrowRecord/SearchRecord/self"><i class="icon-list-alt"></i> 借阅书籍记录</a>
               </div>
             </div>
           </div>
-		  <!--
-          <div class="accordion-group">
-            <div class="accordion-heading">
-              <a class="accordion-toggle b_9FDDF6 collapsed" data-toggle="collapse" data-parent="#accordion2" href="#returnRecord"><i class="icon-reorder"></i> <span>归还记录</span></a>
-            </div>
-            <div id="returnRecord" class="accordion-body collapse">
-              <div class="accordion-inner">
-                <a class="accordion-toggle" href="/ReturnRecord/unreturn"><i class="icon-rss"></i> 未归还书籍记录</a>
-                <a class="accordion-toggle" href="/ReturnRecord/returned"><i class="icon-calendar"></i> 已归还书籍历史记录</a>
-                <a class="accordion-toggle" href="/ReturnRecord//all"><i class="icon-picture"></i> 全部归还历史记录</a>
-              </div>
-            </div>
-          </div>
-		  -->
 		  
 		  
           
 		@if ((Auth::user()->user_roles_id)<3)
+		
+		<div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle b_F6F1A2 collapsed" data-toggle="collapse" data-parent="#accordion2" href="#T"><i class="icon-tasks"></i> <span>借阅管理</span></a>
+            </div>
+			<div id="T" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <a class="accordion-toggle" href="/BorrowManger/Borrow"><i class="icon-rss"></i> 借书模块</a>
+			  </div>
+            </div>
+          </div>
+		
            <div class="accordion-group">
             <div class="accordion-heading">
-              <a class="accordion-toggle b_F6F1A2" data-toggle="collapse" data-parent="#accordion2" href="#BookManger"><i class="icon-tasks"></i> <span>图书管理</span></a>
+              <a class="accordion-toggle b_F6F1A2 collapsed" data-toggle="collapse" data-parent="#accordion2" href="#BookManger"><i class="icon-tasks"></i> <span>图书管理</span></a>
             </div>
 			<div id="BookManger" class="accordion-body collapse">
               <div class="accordion-inner">
@@ -165,24 +161,12 @@
             </div>
           </div>
 		  
-		   <div class="accordion-group">
-            <div class="accordion-heading">
-              <a class="accordion-toggle b_F6F1A2" data-toggle="collapse" data-parent="#accordion2" href="#T"><i class="icon-tasks"></i> <span>借阅管理</span></a>
-            </div>
-			<div id="T" class="accordion-body collapse">
-              <div class="accordion-inner">
-                <a class="accordion-toggle" href="/BorrowManger/Borrow"><i class="icon-rss"></i> 借书模块</a>
-                <a class="accordion-toggle" href="/BorrowManger/Return"><i class="icon-calendar"></i> 还书模块</a>
-
-		
-			  </div>
-            </div>
-          </div>
+		   
 		  
 		  
 		  <div class="accordion-group">
             <div class="accordion-heading">
-              <a class="accordion-toggle b_F6F1A2" data-toggle="collapse" data-parent="#accordion2" href="#BookStyle"><i class="icon-tasks"></i> <span>图书类型管理<span></a>
+              <a class="accordion-toggle b_F6F1A2 collapsed" data-toggle="collapse" data-parent="#accordion2" href="#BookStyle"><i class="icon-tasks"></i> <span>图书类型管理<span></a>
             </div>
 			<div id="BookStyle" class="accordion-body collapse">
               <div class="accordion-inner">
@@ -195,7 +179,7 @@
           </div>
 		    <div class="accordion-group">
             <div class="accordion-heading">
-              <a class="accordion-toggle b_F6F1A2" data-toggle="collapse" data-parent="#accordion2" href="#LibraryManger"><i class="icon-tasks"></i> <span>图书室信息管理</span></a>
+              <a class="accordion-toggle b_F6F1A2 collapsed" data-toggle="collapse" data-parent="#accordion2" href="#LibraryManger"><i class="icon-tasks"></i> <span>图书室信息管理</span></a>
             </div>
 			<div id="LibraryManger" class="accordion-body collapse">
               <div class="accordion-inner">
@@ -210,7 +194,7 @@
           </div>
 		      <div class="accordion-group">
             <div class="accordion-heading">
-              <a class="accordion-toggle b_F6F1A2" data-toggle="collapse" data-parent="#accordion2" href="#Shelf"><i class="icon-tasks"></i> <span>书架信息信息管理</span></a>
+              <a class="accordion-toggle b_F6F1A2 collapsed" data-toggle="collapse" data-parent="#accordion2" href="#Shelf"><i class="icon-tasks"></i> <span>书架信息信息管理</span></a>
             </div>
 			<div id="Shelf" class="accordion-body collapse">
               <div class="accordion-inner">
@@ -227,7 +211,7 @@
 		@if ((Auth::user()->user_roles_id)<2)
          <div class="accordion-group">
             <div class="accordion-heading">
-              <a class="accordion-toggle b_F6F1A2" data-toggle="collapse" data-parent="#accordion2" href="#UserManger"><i class="icon-tasks"></i> <span>用户管理</span></a>
+              <a class="accordion-toggle b_F6F1A2 collapsed" data-toggle="collapse" data-parent="#accordion2" href="#UserManger"><i class="icon-tasks"></i> <span>用户管理</span></a>
             </div>
 			<div id="UserManger" class="accordion-body collapse">
               <div class="accordion-inner">
