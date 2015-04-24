@@ -10,11 +10,11 @@ use App\BookRoom;
 use App\BookShelf;
 
 class LibraryMangerController extends Controller {
-	//ÏÔÊ¾Ò³Ãæ()
+	//æ˜¾ç¤ºé¡µé¢()
 	public function Show($id){
 	$room=BookRoom::all();
 	$shelf=BookShelf::all();
-	//¸ù¾ÝIDÏÔÊ¾Ò³Ãæ
+	//æ ¹æ®IDæ˜¾ç¤ºé¡µé¢
 	switch ($id){
 		case "LibraryAdd":
 		return view('library.libraryManger.libraryAdd');	
@@ -36,8 +36,8 @@ class LibraryMangerController extends Controller {
 		break;
 		}
 	}
-	//Í¼ÊéÊÒ
-	//Ìí¼ÓÍ¼ÊéÊÒÀàÐÍ
+	//å›¾ä¹¦å®¤
+	//æ·»åŠ å›¾ä¹¦å®¤ç±»åž‹
 	public function Add(LibraryRequest $request){
 		$room=new BookRoom;
 		$room->name=$request->libraryname;
@@ -47,21 +47,21 @@ class LibraryMangerController extends Controller {
 		
 		return redirect()->back();
 	}
-	//¸üÐÂ
+	//æ›´æ–°
 	public function Update(LibraryRequest $request){
 		$room= BookRoom::find($request->name);
 		$room->name=$request->libraryname;
 		$room->save();
 		return redirect()->back();
 	}
-	//É¾³ý
+	//åˆ é™¤
 	public function Delete(LibraryRequest $request){
 		BookRoom::destroy($request->name);
 		return redirect()->back();
 	}
-	//Èë¿Ú
+	//å…¥å£
 	//
-	//Êé¼Ü
+	//ä¹¦æž¶
 	public function Add1(LibraryRequest $request){
 		$shelf=new BookShelf;
 		$shelf->name=$request->shelfname;
@@ -70,14 +70,14 @@ class LibraryMangerController extends Controller {
 		$shelf->save();
 		return redirect()->back();
 	}
-	//¸üÐÂ
+	//æ›´æ–°
 	public function Update1(LibraryRequest $request){
 		$shelf= BookShelf::find($request->shelf);
 		$shelf->name=$request->shelfname;
 		$shelf->save();
 		return redirect()->back();
 	}
-	//É¾³ý
+	//åˆ é™¤
 	public function Delete1(LibraryRequest $request){
 		BookShelf::destroy($request->shelf);
 		return redirect()->back();

@@ -17,9 +17,9 @@ Route::get('/home', 'WelcomeController@test');
 Route::get('/', 'WelcomeController@test');
 //Route::get('/test', 'WelcomeController@test');
 
-//ÓÃ»§ÐÅÏ¢ÏÔÊ¾&ÐÞ¸Ä_¿ØÖÆÂ·ÓÉ×é
+//ç”¨æˆ·ä¿¡æ¯æ˜¾ç¤º&ä¿®æ”¹_æŽ§åˆ¶è·¯ç”±ç»„
 Route::group(['prefix'=>'User'],function(){
-	//¶ÁÕßÐÅÏ¢
+	//è¯»è€…ä¿¡æ¯
 	//GET
 	Route::get('/userInfoShow/', 'ReaderController@userInfoShow');
 	Route::get('/resetUserInfoShow/', 'ReaderController@userInfoResetShow');
@@ -36,7 +36,7 @@ Route::group(['prefix'=>'User'],function(){
 	
 });
 
-//Í¼Êé¹ÜÀíÄ£¿é ¿ØÖÆÂ·ÓÉ BookManger modle£¬route of controller//
+//å›¾ä¹¦ç®¡ç†æ¨¡å— æŽ§åˆ¶è·¯ç”± BookManger modleï¼Œroute of controller//
 Route::group(['prefix'=>'BookManger'],function(){
 	//GET //
 	//Form for show information.//
@@ -61,9 +61,9 @@ Route::group(['prefix'=>'BookManger'],function(){
 	Route::post('/update/', 'BookMangerController@BookUpdate');
 });
 
-//ÓÃ»§ÐÅÏ¢¹ÜÀíÄ£¿é Â·ÓÉ//
+//ç”¨æˆ·ä¿¡æ¯ç®¡ç†æ¨¡å— è·¯ç”±//
 Route::group(['prefix'=>'UserManger'],function(){
-	//¶ÁÕßÐÅÏ¢
+	//è¯»è€…ä¿¡æ¯
 	Route::get('/InfoManger/', 'UserMangerController@InfoShow');
 	Route::get('/RolesManger', 'UserMangerController@RoleShow');
 	//Post
@@ -71,27 +71,27 @@ Route::group(['prefix'=>'UserManger'],function(){
 	Route::post('/UpdateRoles',"UserMangerController@UpdateRoles");
 });
 
-//Êé¼®²éÕÒ¹ÜÀíÄ£¿é Â·ÓÉ//
+//ä¹¦ç±æŸ¥æ‰¾ç®¡ç†æ¨¡å— è·¯ç”±//
 Route::group(['prefix'=>'BookFind'],function(){
-	//Êé¼®²éÕÒ
+	//ä¹¦ç±æŸ¥æ‰¾
 	Route::get('/onExact', 'BookFindController@OnExactShow');
 	Route::get('/onExactSearch', 'BookFindController@OnExact');
 	Route::get('/onFuzzy', 'BookFindController@OnFuzzyShow');
 	Route::get('/onFuzzySearch', 'BookFindController@OnFuzzy');
 
 });
-//Í¼ÊéÀàÐÍ¹ÜÀíÄ£¿é Â·ÓÉ//
+//å›¾ä¹¦ç±»åž‹ç®¡ç†æ¨¡å— è·¯ç”±//
 Route::group(['prefix'=>'BookStyle'],function(){
-	//¶ÁÕßÐÅÏ¢
+	//è¯»è€…ä¿¡æ¯
 	
 	Route::get('/Show/{id}', 'BookStyleController@Show');
 	
 	Route::post('/{id}','BookStyleController@Edit');
 
 });
-//Í¼Êé¹Ü&Êé¼ÜÐÅÏ¢¹ÜÀíÄ£¿é Â·ÓÉ//
+//å›¾ä¹¦ç®¡&ä¹¦æž¶ä¿¡æ¯ç®¡ç†æ¨¡å— è·¯ç”±//
 Route::group(['prefix'=>'LibraryManger'],function(){
-	//¶ÁÕßÐÅÏ¢
+	//è¯»è€…ä¿¡æ¯
 	Route::get('/Show/{id}', 'LibraryMangerController@Show');
 	//Route::get('/', 'UserMangerController@RoleShow');
 	Route::post('/{id}','LibraryMangerController@Edit');
@@ -99,16 +99,16 @@ Route::group(['prefix'=>'LibraryManger'],function(){
 
 /*
 |--------------------------------------------------------------------------
-| ½èÔÄ&¹é»¹¹ÜÀíÂ·ÓÉ
+| å€Ÿé˜…&å½’è¿˜ç®¡ç†è·¯ç”±
 |--------------------------------------------------------------------------
 */
 Route::group(['prefix'=>'BorrowManger'],function(){
-	//¶ÁÕßÐÅÏ¢
+	//è¯»è€…ä¿¡æ¯
 	Route::get('/{id}', 'BorrowMangerController@Show');
 	//Route::get('/', 'UserMangerController@RoleShow');
 	Route::post('/{id}','BorrowMangerController@Edit');
 });
-//AJAX²éÑ¯
+//AJAXæŸ¥è¯¢
 Route::group(['prefix'=>'Ajax'],function(){
 	
 	//Route::post('/{id}','AjaxController@forward');
@@ -120,7 +120,7 @@ Route::group(['prefix'=>'Ajax'],function(){
 	
 });
 
-//½èÔÄ¼ÇÂ¼²éÑ¯¹ÜÀí
+//å€Ÿé˜…è®°å½•æŸ¥è¯¢ç®¡ç†
 Route::group(['prefix'=>'BorrowRecord'],function(){
 	Route::get('/{id}', 'BorrowRecordMangerController@Show');
 	Route::post('/SearchRecord', 'BorrowRecordMangerController@SearchRecord');	
@@ -129,12 +129,12 @@ Route::group(['prefix'=>'BorrowRecord'],function(){
 });
 
 
-//ÆÕÍ¨Â·ÓÉ
+//æ™®é€šè·¯ç”±
 
 
 
 
-//¿ØÖÆÆ÷Â·ÓÉ
+//æŽ§åˆ¶å™¨è·¯ç”±
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

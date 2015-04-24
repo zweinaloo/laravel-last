@@ -1,4 +1,4 @@
-﻿@extends('library.home')
+@extends('library.home')
 
 @section('mainwindow')
 		 <!--@parent-->
