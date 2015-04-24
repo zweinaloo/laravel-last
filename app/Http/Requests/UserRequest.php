@@ -2,7 +2,7 @@
 
 use App\Http\Requests\Request;
 
-class ShelfRequest extends Request {
+class UserRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -23,7 +23,9 @@ class ShelfRequest extends Request {
 	{
 		return [
 			//
-			'shelfname' =>'required|alpha'
+			'name' =>'required|min:3|max:100',
+			'sex' =>'required',
+			'phoneno'=>'required|min:7|max:11'
 		];
 	}
 
