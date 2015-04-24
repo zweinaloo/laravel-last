@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
- // require 'vendor/autoload.php';
+
  
 use Carbon\Carbon;
 use App\Http\Requests;
@@ -14,7 +14,7 @@ use App\Book;
 use App\Borrowing_record,App\Return_record;
 use DB;
 class AjaxController extends Controller {
-public function SearchReader(){
+	public function SearchReader(){
 		//通过id获取用户，返回$data用户名和班级名称
 		$data=null;
 		$reader=Reader::find(Request::input('id'));
@@ -24,9 +24,10 @@ public function SearchReader(){
 		$data=[$name,$class];}
 		return $data;
 		//return $reader;
+		
 	}
-public function SearchBook(){
-		//通过id获取用户，返回$data用户名和班级名称
+	public function SearchBook(){
+		// 通过id获取用户，返回$data用户名和班级名称
 		$data=null;
 		$book=Book::find(Request::input('id'));
 		if($book){
@@ -43,7 +44,7 @@ public function SearchBook(){
 		return $data;
 		//return $reader;
 	}
-public function addBorrowRecord(){
+	public function addBorrowRecord(){
 		$data=null;
 		//1.通过id查询用户权限，获得可借阅天数
 		$reader=User::Find(Request::input('id'));
@@ -102,7 +103,7 @@ public function addBorrowRecord(){
 		
 		return $data; 
 	}
-public function UpdataCordList(){
+	public function UpdataCordList(){
 	
 	 $id=Request::input('id');
 
