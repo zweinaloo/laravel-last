@@ -1,4 +1,4 @@
-@extends('library.home')
+﻿@extends('library.home')
 
 @section('mainwindow')
 		 <!--@parent-->
@@ -38,7 +38,7 @@
 							</ul>
 						</div>
 					@endif
-				</div
+				</div>
 					
 					
                 <form class="form-horizontal" role="form" method="POST" action="/User/resetUserInfo">
@@ -70,7 +70,9 @@
 								<option selected="selected" value="{{$user->style->id}}">{{$user->style->name}}</option>
 								 @if ((Auth::user()->user_roles_id)<2)
 								@foreach ($style as $style)
+									
 								<option value="{{$style->id}}">{{$style->name}}</option>
+								
 								@endforeach
 									  @endif
 								</select>
@@ -146,20 +148,19 @@
 							</div>
                   </div>
                  
-                 
-                  
-                  
-                  
-               
+
+ 
+
+                
                   
                   <div class="control-group">
                     <label class="control-label">生日：</label>
                       <div class="controls">
                         
-					<input type="text" readonly="readonly" name="birth" id="datepicker" value="{{$user->reader->birth}}">
+					<input type="text"  name="birth" id="datepicker" value="{{$user->reader->birth}}">
                       </div>
                   </div>
-                 
+
                 <div class="control-group">
                     <label class="control-label">个人签名：</label>
                       <div class="controls">
@@ -171,7 +172,7 @@
               <center> <button class="btn btn-primary" type="submit">提交</button>
                <button class="btn" type="button">放棄</button>
 				</center>
-			</div>
+				</div>
 				    </form>
             
             
