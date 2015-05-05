@@ -15,6 +15,7 @@ Route::get('/a', 'WelcomeController@index');
 
 Route::get('/home', 'WelcomeController@test');
 Route::get('/', 'WelcomeController@test');
+
 //Route::get('/test', 'WelcomeController@test');
 
 //用户信息显示&修改_控制路由组
