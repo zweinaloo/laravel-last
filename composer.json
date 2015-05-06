@@ -7,8 +7,8 @@
 	"require": {
 		"laravel/framework": "5.0.*",
 		"cartalyst/sentry": "2.1.*",
-		 "nesbot/carbon": "~1.14"
-		
+		 "nesbot/carbon": "~1.14",
+		"overtrue/laravel-lang": "dev-master"
 		
 		
 	},

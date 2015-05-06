@@ -52,7 +52,7 @@ return [
 	|
 	*/
 
-	'locale' => 'en',
+	'locale' => 'zh-CN',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return [
 	|
 	*/
 
-	'fallback_locale' => 'en',
+	'fallback_locale' => 'zh-CN',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -132,7 +132,7 @@ return [
 		'Illuminate\Redis\RedisServiceProvider',
 		'Illuminate\Auth\Passwords\PasswordResetServiceProvider',
 		'Illuminate\Session\SessionServiceProvider',
-		'Illuminate\Translation\TranslationServiceProvider',
+		'Overtrue\LaravelLang\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		
 		'Illuminate\View\ViewServiceProvider',

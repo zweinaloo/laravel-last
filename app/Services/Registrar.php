@@ -29,8 +29,6 @@ class Registrar implements RegistrarContract {
 			'name' =>$name,
 			'style_id' => 3,
 			'class_id' => 1,
-			
-			
 			'phoneno'=> '默认无',
 		
 		
