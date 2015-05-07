@@ -33,7 +33,7 @@
                 </form>
 				@if($book)
 				<p>已找到：</p>
-				<p>书号：{{$book->id or '？'}} 书名：{{$book->Book_name or '无'}}</p>
+				<p>书号：{{$book->Book_id or '？'}} 书名：{{$book->Book_name or '无'}}</p>
 				@else
 				<p>未找到书籍</p>
 				@endif
@@ -59,13 +59,17 @@
               <div class="widget-forms clearfix">
                 <form class="form-horizontal" role="form" id="form1" method="POST" action="/BookManger/update">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
-					<input type="hidden" name="find" value="{{$book->id or '无'}}">
-
+					<input type="hidden" name="finded" value="{{$book->id or '无'}}">
+					<div class="control-group">
+                    <label class="control-label">书号</label>
+                    <div class="controls">
+                      <input class="span7" type="text" name="Book_id" placeholder="书号(ID)" value="{{ $book->Book_id or '' }}">      
+                    </div>
+                  </div>
                   <div class="control-group">
                     <label class="control-label">书名</label>
                     <div class="controls">
-                      <input class="span7" type="text" name="name" placeholder="书名(MG)" value="{{ $book->Book_name or '' }}">
-                    
+                      <input class="span7" type="text" name="name" placeholder="书名(BN)" value="{{ $book->Book_name or '' }}">
                     </div>
                   </div>
 				  

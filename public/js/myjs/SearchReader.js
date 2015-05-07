@@ -13,16 +13,17 @@ $(document).ready(function () {
 		SearchBook();
 		}
 	});
-		$("#btnNewBorrowRecord").click(function () {
+	$("#btnNewBorrowRecord").click(function () {
 		if(CheckBookId()&&Check()){
-		NewBorrowRecord();
-	
+			if(CheckBookCount()){
+				NewBorrowRecord();
+			}
+			else
+			{
+				alert('书籍数量小于1');
+			}
 		}
-	});
-	
-
-	
-	
+	});	
 });
 //绑定Ajax生成归还按钮 的归还事件
 $(document).on('click','button.btnreturn',function(){
@@ -30,10 +31,14 @@ $(document).on('click','button.btnreturn',function(){
 	var $id=$(this).attr("id");
 	//alert($id);
 	NewreturnRecord($id)
-	
-
 })
+function CheckBookCount(){
+	if($("#Spaninfo").text()>0)
+		return true;
+	else
+		return false;
 
+}
 function Login() {
 	if (Check()) {
 		LoginSuccess();
@@ -41,7 +46,7 @@ function Login() {
 }
 function Check() {
 	if ($("#inputId").val() == "") {
-		alert("用户id不能为空！");
+		alert("借阅用户不能为空！");
 		$("#inputId").focus();
 		return false;
 	}
@@ -119,7 +124,7 @@ function NewBorrowRecord(){
 		},
 		success:function(){
 		UpdataCordList();
-		
+		SearchBook();
 		alert("完成借阅！");
 		}	
 	})
@@ -135,6 +140,7 @@ function NewreturnRecord($id){
 		},
 		success:function(){
 		UpdataCordList();
+		SearchBook();
 		alert("完成归还！");
 		}	
 	})
@@ -161,10 +167,11 @@ $.ajax({
 		 var id=$("<td id='record_id"+data[i].id+"'></td>").text(data[i].id);
 		var Bookname=$("<td id='record_Bookname'></td>").text(data[i].Book_name);
 		var date=$("<td id='record_date'></td>").text(data[i].Borrowing_Record_date);
+		var date1=$("<td id='record_date1'></td>").text(data[i].havetoreturn);
 		var button=$("<button  id='"+data[i].id+"'></button>").text("归还");
 		button.addClass("btnreturn");
 	    var td1=$("<td></td>").append(button);
-		var tr1=$("<tr id='"+data[i].id+"'></tr>").append(id,Bookname,date,td1);
+		var tr1=$("<tr id='"+data[i].id+"'></tr>").append(id,Bookname,date,date1,td1);
 		  $("#recordList").append(tr1);
 
 		}

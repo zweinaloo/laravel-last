@@ -27,12 +27,16 @@
                 <form class="form-horizontal" role="form" method="POST" action="/BookManger/add">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-
+                  <div class="control-group">
+                    <label class="control-label">书号</label>
+                    <div class="controls">
+                      <input class="span7" type="text" name="Book_id" placeholder="书号(ID)" >      
+                    </div>
+                  </div>
                   <div class="control-group">
                     <label class="control-label">书名</label>
                     <div class="controls">
-                      <input class="span7" type="text" name="name" placeholder="书名(MG)" >
-                    
+                      <input class="span7" type="text" name="name" placeholder="书名(BN)" >      
                     </div>
                   </div>
                   <div class="control-group">
@@ -40,15 +44,13 @@
                     <div class="controls">
                       <input class="span7" name="writer" type="text" placeholder="作者" >
                     </div><div class="control-group">
-					
                   </div>
 				   <div class="control-group">
                     <label class="control-label">出版社</label>
                     <div class="controls">
                       <input class="span7" name="publish" type="text" placeholder="出版社" >
                     </div>
-                  </div>
-                
+                  </div
                <div class="control-group">
                     <label class="control-label">书籍类型</label>
                     <div class="controls">
@@ -82,30 +84,21 @@
                     <div class="controls">
                       <input class="span7" name="count" type="text" placeholder="添加数量" >
                     </div>
-                  </div>
-                 
-                 
-                  
-                  
-                  
-               
-                  
-                  
-                 
+                  </div>  
                 <div class="control-group">
                     <label class="control-label">附注</label>
                       <div class="controls">
                         <textarea class="span7" rows="5" name="mark" style="height:100px;">说些什么吧。。。。。。</textarea>
                       </div>
                 </div>
-				
-				    </form>
-            
-            
-            <div class="widget-footer">
+				 <div class="widget-footer">
               <center> <button class="btn btn-primary" type="submit">提交</button>
                <button class="btn" type="button">放棄</button>
             </center></div>
+				    </form>
+            
+            
+           
 				  
       
 @stop

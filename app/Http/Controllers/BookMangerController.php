@@ -21,17 +21,16 @@ class BookMangerController extends Controller {
 
 		public function BookAdd()
 	{	
-		$book = new Book;
-		$book->Book_name = Request::input('name');
-			$book->writer = Request::input('writer');
-			$book->publish = Request::input('publish');
-			$book->count = Request::input('count');
-			$book->shelf_id=Request::input('shelf');
-			$book->style_id=Request::input('style');	
-			$book->mark = Request::input('mark');
 		
-
-		$book->save();
+		$book = Book::firstOrCreate(['Book_name' => Request::input('name'),
+									'Book_id' => Request::input('Book_id'),
+									'writer' => Request::input('writer'),
+									'publish' => Request::input('publish'),
+									'count' => Request::input('count'),
+									'shelf_id' => Request::input('shelf'),
+									'style_id' => Request::input('style'),
+									'mark' => Request::input('mark')
+										]);
 		$style=Book_style::all();
 		$shelf=BookShelf::all();
 		return view('library.bookManger.bookMangerAdd')->withstyle($style)->withShelf($shelf);
@@ -56,10 +55,10 @@ class BookMangerController extends Controller {
 		{
 		case "1":
 		//$book=Book::where('Book_id', '=', $find["find"])->first();
-		$book=Book::where('id', '=',$find["find"])->first();
+		$book=Book::where('Book_id', '=',intval($find["find"]))->first();
 		break;  
 		case "2":
-		$book=Book::where('name', '=',$find["find"])->first();
+		$book=Book::where('Book_name', '=',$find["find"])->first();
 		break;
 		case "3":
 		$book=Book::where('writer', '=',$find["find"])->first();
@@ -68,21 +67,18 @@ class BookMangerController extends Controller {
 		}
 		$style=Book_style::all();
 		$shelf=BookShelf::all();
-		//var_dump($shelf);
-		return view("library.bookManger.bookMangerUpdate")->withBook($book)->withFind($find)->withstyle($style)->withShelf($shelf);
+		return view("library.bookManger.bookMangerUpdate")->withBook($book)->withFind($find)->withstyle($style)->withShelf($shelf)->withMsg($msg);
 	
 	}
 	
 	public function BookUpdate()
-	{		$style=Book_style::all();
-		   $shelf=BookShelf::all();
-		   $id=Request::input('find');
-		 
-			$book=Book::where('id', '=',$id)->first();
-
-		//dd($book);
+	{		
+		   $id=intval(Request::input('finded'));
+			// $book=Book::Where('Book_id','=',$id)->get()->first();
+			$book=Book::find($id);
+		//dd($book,$id,Request::input('finded'));
 			$book->Book_name = Request::input('name');
-				
+			$book->Book_id = Request::input('Book_id');
 			$book->writer = Request::input('writer');
 			$book->publish = Request::input('publish');
 			$book->count = Request::input('count');
@@ -90,10 +86,7 @@ class BookMangerController extends Controller {
 			$book->style_id=Request::input('style');	
 			$book->mark = Request::input('remark');
 			$book->save();
-		
-			
-		
-			return view('library.bookManger.bookMangerUpdate')->withBook($book)->withstyle($style)->withShelf($shelf);
+			return redirect()->back();
 	}
 	
 	public function BookDeleteShow()
@@ -114,18 +107,18 @@ class BookMangerController extends Controller {
 		{
 		case "1":
 		//$book=Book::find($find["find"])->take(100)->get();
-		$book=Book::where('id', '=',$find["find"])->take(1)->get();
+		$book=Book::where('Book_id', '=',$find["find"])->get()->first();
 		break;  
 		case "2":
-		$book=Book::where('name', '=',$find["find"])->take(1)->get();
+		$book=Book::where('Book_name', '=',$find["find"])->get()->first();
 		break;
 		case "3":
-		$book=Book::where('writer', '=',$find["find"])->take(1)->get();
+		$book=Book::where('writer', '=',$find["find"])->get()->first();
 		break;
 	
 		}
 		//return $book;
-		return view('library.bookManger.bookMangerDelete')->withBook($book)->withFind($find);
+		return redirect()-back();
 	}
 	
 	public function BookDelete($id)

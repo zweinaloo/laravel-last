@@ -95,7 +95,7 @@
 					<th>类型</th>
 					<th>位置</th>
                     <th>借阅日期</th>
-			
+					<th>到期日期</th>
                     <th>操作</th>
                   </tr>
                 </thead>
@@ -110,6 +110,7 @@
 					<td>{{$data->Book_style_name }}</td>
 					 <td>{{$data->name}}</td>
 					<td>{{$data->Borrowing_Record_date }}</td>
+					<td>{{$data->havetoreturn}}</td>
 			
 					<td>
                       <div class="btn-group">

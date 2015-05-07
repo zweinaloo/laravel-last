@@ -27,6 +27,6 @@ class Book_style extends Model {
 						   
 	public function  Book()
     {
-        return $this->belongsTo('App\User','id','style_id');
+        return $this->belongsTo('App\Book');
     }
 }

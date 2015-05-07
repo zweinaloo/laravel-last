@@ -14,14 +14,14 @@ class AddBooksTableSeeder extends Seeder {
 		for($id=1;$id<=600;$id++)
 		{
 			Book::create([
-			
+			'Book_id' =>$id,
 			'shelf_id'=>$id%4,
 			'style_id'=>$id%4,
 			'Book_name'=>'Book'.$id,
 			'writer'=>'Writer'.$id%10,
 			'publish'=>'Publish'.$id%10,
 			'count'=>$id%10,
-			'mark'=>'I DONT KNOW ANYTHING'.$id,
+			'mark'=>'说明1'.$id,
 			]);
 		
 		}

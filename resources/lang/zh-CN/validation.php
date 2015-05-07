@@ -105,7 +105,8 @@ return [
     'attributes' => [
 	'name'=>'您的用户名',
 	'password'=>'您的密码',
-	'email'=>'您的邮箱'
+	'email'=>'您的邮箱',
+    'phoneno' =>'电话' 
 	],
 
 ];

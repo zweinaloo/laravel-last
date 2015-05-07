@@ -67,7 +67,6 @@ class AjaxController extends Controller {
 		//$record->isretrun=0;
 		//dd($record->havetoreturn,$record->Borrowing_Record_date);
 		$admin=Auth::user()->name;
-		
 		$record->Borrowing_Record_mark=$admin;
 		$record->save();
 		$reader->save();
@@ -113,14 +112,10 @@ class AjaxController extends Controller {
             $join->on( 'readers.id', '=', 'borrowing_record.Borrowing_Record_reader_id')
                  ->where('readers.id', '=',Request::input('id'))
 				 ->where('borrowing_record.isreturn','=',0);
-
         })
             ->join('book', 'book.id', '=', 'borrowing_record.Book_id')
-            ->select('book.Book_name', 'readers.name', 'borrowing_record.Borrowing_Record_date','borrowing_record.id')
-            ->get();	 
-	
-	
-	
+            ->select('book.Book_name', 'readers.name', 'borrowing_record.Borrowing_Record_date','borrowing_record.id','borrowing_record.havetoreturn')
+            ->get();
 	//dd($record);
 	return $record; 
 

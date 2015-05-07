@@ -50,9 +50,9 @@ class BorrowRecordMangerController extends Controller {
 		->join('bookshelf','bookshelf.id','=','book.shelf_id')
 		->leftjoin('bookroom','bookroom.id','=','bookshelf.room_id')
           // ->select('book.*','borrowing_record.*','book_style.*','bookshelf.*','bookroom.*')
-			->select('*')
+			->select('book.Book_id','book.Book_name','book_style.Book_style_name','bookshelf.name','borrowing_record.*')
 			->get();
-			
+			//dd($data);
 			//归还记录
 		$data1=DB::table('return_record')       
 			->join('readers', function($join){
@@ -87,13 +87,12 @@ class BorrowRecordMangerController extends Controller {
 				 //->where('borrowing_record.isreturn','=',0);
 
         })
-            ->join('book', 'book.id', '=', 'borrowing_record.Book_id')
+        ->join('book', 'book.id', '=', 'borrowing_record.Book_id')
 		->leftjoin('book_style','book_style.id','=','book.style_id')
 		->join('bookshelf','bookshelf.id','=','book.shelf_id')
 		->leftjoin('bookroom','bookroom.id','=','bookshelf.room_id')
-           ->select('book.*','borrowing_record.*','book_style.*','bookshelf.*','bookroom.*')
+           ->select('book.Book_id','book.Book_name','book_style.Book_style_name','bookshelf.name','borrowing_record.*')
 			->get();
-			
 			//归还记录
 		$data1=DB::table('return_record')       
 			->join('readers', function($join){
@@ -107,7 +106,7 @@ class BorrowRecordMangerController extends Controller {
 		->leftjoin('book_style','book_style.id','=','book.style_id')
 		->join('bookshelf','bookshelf.id','=','book.shelf_id')
 		->leftjoin('bookroom','bookroom.id','=','bookshelf.room_id')
-           ->select('book.*','return_record.*','book_style.*','bookshelf.*','bookroom.*')
+           ->select('book.Book_id','book.Book_name','return_record.*','book_style.*','bookshelf.*','bookroom.*')
 			->get();
 			//dd($data);
 		return view('library.borrowRecord.borrowRecordAll')->withData($data)->withData1($data1)->withReader($reader);
