@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateBookStyle extends Migration {
+class CreateGradeTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -13,10 +13,11 @@ class UpdateBookStyle extends Migration {
 	public function up()
 	{
 		//
-		Schema::table('book_style', function($table)
-{
-    $table->renameColumn('id', 'Book_style_id');
-});
+		Schema::create('grade', function(Blueprint $table)
+		{
+			$table->increments('id');
+			$table->string('grade_name');
+		});
 	}
 
 	/**
@@ -27,6 +28,7 @@ class UpdateBookStyle extends Migration {
 	public function down()
 	{
 		//
+		Schema::drop('grade');
 	}
 
 }

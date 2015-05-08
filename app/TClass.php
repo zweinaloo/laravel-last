@@ -6,7 +6,7 @@ class TClass extends Model {
 
 	//
 	protected $table='class';
-	
+	public $timestamps = false;
 	protected $fillable=['Gra_id',
 						 'Cla_name',
 						 'Pre_id'];

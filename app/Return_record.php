@@ -8,8 +8,7 @@ class Return_record extends Model {
 		protected $table = 'return_record';
 	
 	protected $fillable=[
-						"Book_id",
-					
+						"Book_id",					
 						"Borrowing_Record_id",
 						"Return_record_mark",
 						"Return_record_reader_id",

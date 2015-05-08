@@ -21,7 +21,6 @@ class Book_style extends Model {
 	 
 	protected $fillable = ['id', 
 						   'Book_style_name',
-						   'Book_style_keyword',
 						   'Book_style_mark'];
 						   
 						   

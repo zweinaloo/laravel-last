@@ -9,7 +9,7 @@ class Reader extends Model {
 	
 	//
 	
-	
+	public $timestamps = false;
 	//
 	protected $fillable = [
 	'name', 

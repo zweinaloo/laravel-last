@@ -6,12 +6,12 @@ class Professional extends Model {
 
 	//
 	
-		protected $table='professional';
+	protected $table='professional';
 	
 	protected $fillable=['Pre_name','dep_id'];
 	
 	
-	
+	public $timestamps = false;
 	public function TClass()
     {
         return $this->belongsTo('App\TClass');

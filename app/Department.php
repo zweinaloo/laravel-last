@@ -7,8 +7,8 @@ class Department extends Model {
 	//
 	protected $table = 'department';
 	
-	protected $fillable=['name'];
-	
+	protected $fillable=['department_name'];
+	public $timestamps = false;
 	public function Professional()
     {
         return $this->belongsTo('App\Professional');

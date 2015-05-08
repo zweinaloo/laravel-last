@@ -30,7 +30,7 @@ class Registrar implements RegistrarContract {
 			'style_id' => 3,
 			'class_id' => 1,
 			'phoneno'=> '默认无',
-		
+		    
 		
 		]);
 	}
@@ -47,7 +47,7 @@ class Registrar implements RegistrarContract {
 		
 		
 		return User::create([
-			
+			'name'=>$data['name'],
 			'email' => $data['email'],
 			'password' => bcrypt($data['password']),
 			"user_roles_id"=>'3',

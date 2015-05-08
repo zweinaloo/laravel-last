@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReaderStylesTable extends Migration {
+class CreateReaderStyleTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,17 +12,18 @@ class CreateReaderStylesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('reader_styles', function(Blueprint $table)
+		//
+		Schema::create('reader_style', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('name')->unique();
-			$table->integer('borrowCount');
-			$table->integer('borrowPeriod');
+			$table->string('style_name');
+			$table->integer('Borrowing_count');
+			$table->integer('Borrowing_period');
 			$table->integer('Validity');
-			$table->integer('mark');
+			$table->integer('Renew');
 		});
 	}
-
+	
 	/**
 	 * Reverse the migrations.
 	 *
@@ -30,7 +31,8 @@ class CreateReaderStylesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('reader_styles');
+		//
+		Schema::drop('reader_style');
 	}
 
 }

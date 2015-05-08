@@ -5,9 +5,9 @@ use Illuminate\Database\Eloquent\Model;
 class BookRoom extends Model {
 
 	//
-	protected $table = 'bookroom';
+	protected $table = 'book_room';
 	
-	protected $fillable=['name'];
+	protected $fillable=['Book_room_name'];
 	public $timestamps = false;
 	public function  BookShelf()
     {

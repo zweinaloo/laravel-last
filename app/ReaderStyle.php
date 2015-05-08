@@ -8,7 +8,12 @@ class ReaderStyle extends Model {
 	public $timestamps = false;
 	protected $table = 'reader_style';
 	 
-	 protected $fillable =['name','Borrowing_count','Borrowing_period','Validity'];
+	 protected $fillable =[ 'name',
+	 						'Borrowing_count',
+	 						'Borrowing_period',
+	 						'Validity',
+	 						'Renew'];
+
 	 
 	 public function user()
     {

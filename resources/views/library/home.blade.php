@@ -82,7 +82,7 @@
 		
 		  
           <h5>{{ Auth::user()->name }} </h5>
-		  <h5>{{ Auth::user()->style->name}} </h5>
+		  <h5>{{ Auth::user()->style->style_name}} </h5>
 		  
 		  
 		  

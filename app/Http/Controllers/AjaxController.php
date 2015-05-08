@@ -14,6 +14,9 @@ use App\Book;
 use App\Borrowing_record,App\Return_record;
 use DB;
 class AjaxController extends Controller {
+	/**
+	 * [SearchReader 查询用户]
+	 */
 	public function SearchReader(){
 		//通过id获取用户，返回$data用户名和班级名称
 		$data=null;
