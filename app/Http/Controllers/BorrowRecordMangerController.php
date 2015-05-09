@@ -45,14 +45,14 @@ class BorrowRecordMangerController extends Controller {
 				 //->where('borrowing_record.isreturn','=',0);
 
         })
-            ->leftjoin('book','book.id' , '=', 'borrowing_record.Book_id')
+            ->leftjoin('book','book.Book_id' , '=', 'borrowing_record.Book_id')
 		->leftjoin('book_style','book_style.id','=','book.style_id')
-		->join('bookshelf','bookshelf.id','=','book.shelf_id')
-		->leftjoin('bookroom','bookroom.id','=','bookshelf.room_id')
-          // ->select('book.*','borrowing_record.*','book_style.*','bookshelf.*','bookroom.*')
-			->select('book.Book_id','book.Book_name','book_style.Book_style_name','bookshelf.name','borrowing_record.*')
+		->join('book_shelf','book_shelf.id','=','book.shelf_id')
+		->leftjoin('book_room','book_room.id','=','book_shelf.room_id')
+          // ->select('book.*','borrowing_record.*','book_style.*','bookshelf.*','book_room.*')
+			->select('book.Book_id','book.Book_name','book_style.Book_style_name','book_shelf.Book_shelf_name','borrowing_record.*')
 			->get();
-			//dd($data);
+			($data);
 			//归还记录
 		$data1=DB::table('return_record')       
 			->join('readers', function($join){
@@ -61,14 +61,14 @@ class BorrowRecordMangerController extends Controller {
 		
 
         })
-            ->join('book', 'book.id', '=', 'return_record.Book_id')
+            ->join('book', 'book.Book_id', '=', 'return_record.Book_id')
 			
 		->leftjoin('book_style','book_style.id','=','book.style_id')
-		->join('bookshelf','bookshelf.id','=','book.shelf_id')
-		->leftjoin('bookroom','bookroom.id','=','bookshelf.room_id')
-           ->select('book.*','return_record.*','book_style.*','bookshelf.*','bookroom.*')
+		->join('book_shelf','book_shelf.id','=','book.shelf_id')
+		->leftjoin('book_room','book_room.id','=','book_shelf.room_id')
+           ->select('book.Book_id','book.Book_name','return_record.*','book_style.Book_style_name','book_shelf.Book_shelf_name','book_room.Book_room_name')
 			->get();
-			//dd($data);
+			//dd($data1);
 		return view('library.borrowRecord.borrowRecordAll')->withData($data)->withData1($data1)->withReader($reader);
 	
 	
@@ -87,11 +87,11 @@ class BorrowRecordMangerController extends Controller {
 				 //->where('borrowing_record.isreturn','=',0);
 
         })
-        ->join('book', 'book.id', '=', 'borrowing_record.Book_id')
+        ->join('book', 'book.Book_id', '=', 'borrowing_record.Book_id')
 		->leftjoin('book_style','book_style.id','=','book.style_id')
-		->join('bookshelf','bookshelf.id','=','book.shelf_id')
-		->leftjoin('bookroom','bookroom.id','=','bookshelf.room_id')
-           ->select('book.Book_id','book.Book_name','book_style.Book_style_name','bookshelf.name','borrowing_record.*')
+		->join('book_shelf','book_shelf.id','=','book.shelf_id')
+		->leftjoin('book_room','book_room.id','=','book_shelf.room_id')
+           ->select('book.Book_id','book.Book_name','book_style.Book_style_name','book_shelf.Book_shelf_name','borrowing_record.*')
 			->get();
 			//归还记录
 		$data1=DB::table('return_record')       
@@ -101,12 +101,12 @@ class BorrowRecordMangerController extends Controller {
 		
 
         })
-            ->join('book', 'book.id', '=', 'return_record.Book_id')
+            ->join('book', 'book.Book_id', '=', 'return_record.Book_id')
 			
 		->leftjoin('book_style','book_style.id','=','book.style_id')
-		->join('bookshelf','bookshelf.id','=','book.shelf_id')
-		->leftjoin('bookroom','bookroom.id','=','bookshelf.room_id')
-           ->select('book.Book_id','book.Book_name','return_record.*','book_style.*','bookshelf.*','bookroom.*')
+		->join('book_shelf','book_shelf.id','=','book.shelf_id')
+		->leftjoin('book_room','book_room.id','=','book_shelf.room_id')
+           ->select('book.Book_id','book.Book_name','return_record.*','book_style.Book_style_name','book_shelf.Book_shelf_name','book_room.Book_room_name')
 			->get();
 			//dd($data);
 		return view('library.borrowRecord.borrowRecordAll')->withData($data)->withData1($data1)->withReader($reader);
@@ -114,7 +114,11 @@ class BorrowRecordMangerController extends Controller {
 	
 	
 	}
+
 	
+	public function Renew($ip){
+		return $ip;
+	}
 	
 }
 

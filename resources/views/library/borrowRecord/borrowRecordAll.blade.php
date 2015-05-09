@@ -108,7 +108,7 @@
                     <td>{{$data->Book_id }}</td>
                     <td>{{$data->Book_name }}</td>
 					<td>{{$data->Book_style_name }}</td>
-					 <td>{{$data->name}}</td>
+					 <td>{{$data->Book_shelf_name}}</td>
 					<td>{{$data->Borrowing_Record_date }}</td>
 					<td>{{$data->havetoreturn}}</td>
 			
@@ -120,7 +120,7 @@
                         </a>
                         <ul class="dropdown-menu pull-right">
                           
-                          <li><a href="/BookManger/updateBook/{{$data->id}}"><i class="icon-edit"></i> 续借</a></li>
+                          <li><a href="/BorrowRecord/{{$data->id}}/Renew/"><i class="icon-edit"></i> 续借</a></li>
                         
                         </ul>
                       </div>
@@ -156,7 +156,7 @@
                     <td>{{$data1->Book_id }}</td>
                     <td>{{$data1->Book_name }}</td>
 					<td>{{$data1->Book_style_name }}</td>
-					 <td>{{$data1->name}}</td>
+					 <td>{{$data1->Book_shelf_name}}</td>
 					<td>{{$data1->Return_record_date }}</td>
 			
                   </tr>

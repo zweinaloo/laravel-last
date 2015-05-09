@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/a', 'WelcomeController@index');
 
-Route::get('/home', 'WelcomeController@test');
+
 Route::get('/', 'WelcomeController@test');
 
 //Route::get('/test', 'WelcomeController@test');
@@ -79,7 +78,7 @@ Route::group(['prefix'=>'BookFind'],function(){
 	Route::get('/onExactSearch', 'BookFindController@OnExact');
 	Route::get('/onFuzzy', 'BookFindController@OnFuzzyShow');
 	Route::get('/onFuzzySearch', 'BookFindController@OnFuzzy');
-
+	Route::get('/AjaxOnExact','BookFindController@OnExactShow');
 });
 //图书类型管理模块 路由//
 Route::group(['prefix'=>'BookStyle'],function(){
@@ -123,10 +122,11 @@ Route::group(['prefix'=>'Ajax'],function(){
 
 //借阅记录查询管理
 Route::group(['prefix'=>'BorrowRecord'],function(){
-	Route::get('/{id}', 'BorrowRecordMangerController@Show');
+	
+	Route::get('/{ip}', 'BorrowRecordMangerController@Show');
 	Route::post('/SearchRecord', 'BorrowRecordMangerController@SearchRecord');	
 	Route::get('/SearchRecord/self', 'BorrowRecordMangerController@SearchRecordSelf');	
-	
+	Route::get('/{id}/Renew', 'BorrowRecordMangerController@Renew');
 });
 
 

@@ -8,7 +8,7 @@ class Book extends Model {
 	protected $table = 'book';
 	
 	protected $fillable = ['id',
-							'Book_id',
+						   'Book_id',
 						   'shelf_id',
 						   'style_id',
 						   'Book_name',

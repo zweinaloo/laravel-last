@@ -75,8 +75,8 @@
                     <th>书号</th>
                     <th>书名</th>
                     <th>作者</th>
-					<th>类型</th>
-					<th>位置</th>
+          					<th>类型</th>
+          					<th>位置</th>
                     <th>状态</th>					
                     <th>操作</th>
 					
@@ -87,15 +87,15 @@
 				@if($book)
 				@foreach($book as $book )
                  <tr>
-                    <td>{{$book->id }}</td>
+                    <td>{{$book->Book_id }}</td>
                     <td title="Click to select engine version">{{$book->Book_name }}</td>
                     <td>{{$book->writer }}</td>
 					<td>{{$book->style->Book_style_name }}</td>
-					 <td>{{$book->shelf->BookRoom->name }}</td>
+					 <td>{{$book->shelf->BookRoom->Book_room_name }}{{$book->shelf->Book_shelf_name}}</td>
 					@if ($book->count === 0)
 						<td><span class="label">已借出</span></td>                    
                     @else
-				    <td><span class="label label-success">在库</span></td>
+				    <td><span class="label label-success">可借阅</span></td>
 					@endif
 			
 					<td>

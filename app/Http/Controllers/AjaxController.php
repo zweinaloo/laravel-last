@@ -32,9 +32,10 @@ class AjaxController extends Controller {
 	public function SearchBook(){
 		// 通过id获取用户，返回$data用户名和班级名称
 		$data=null;
-		$book=Book::find(Request::input('id'));
+		$book=Book::Where('Book_id','=',Request::input('id'))->first();
+		//dd($book);
 		if($book){
-		$id=$book->id;
+		$id=$book->Book_id;
 		$name=$book->Book_name;
 		$writer=$book->writer;
 		$count=$book->count;
@@ -53,7 +54,7 @@ class AjaxController extends Controller {
 		$reader=User::Find(Request::input('id'));
 		
 		//2.书籍库存减1.
-		$Book=Book::Find(Request::input('Bookid'));
+		$Book=Book::Where('Book_id','=',Request::input('Bookid'))->first();
 		if($Book->count>0){
 		$Book->count--;
 		}
@@ -76,34 +77,30 @@ class AjaxController extends Controller {
 		return $data;
 	}
 	public function addReturnRecord(){
-		 $data=null;
 		//1.新建归还对象
 		$Returnrecord= new Return_record;
 		//2.通过$id查找到借阅记录
 		$Borrowrecord=Borrowing_record::find(Request::input("id"));
-		//dd($Borrowrecord);
 		//3.复制借阅记录值到归还记录对象，并save
-		
+		//dd($Borrowing_record);
 		$Returnrecord->Book_id=$Borrowrecord->Book_id;
 		$Returnrecord->Return_record_reader_id=$Borrowrecord->Borrowing_Record_reader_id;
 		$Returnrecord->Borrowing_Record_id=$Borrowrecord->id;
+
 		$Returnrecord->Return_record_date=Carbon::now();
 		$Returnrecord->Return_record_mark=Auth::user()->name;
+		
 		$Returnrecord->save();
 		//4.设置借阅记录isreturn值为1（0,未归还；1，已归还），save
 		
 		$Borrowrecord->isreturn=1;
 		$Borrowrecord->save();
-		//dd($record);
+		dd($Returnrecord,$Borrowrecord);
 		//5.书籍库存 +1
-		
-		$Book=Book::Find($Borrowrecord->Book_id);
+		$Book=Book::Where('Book_id','=',$Borrowrecord->Book_id)->first();
 		$Book->count++;
 		$Book->save();
-		
-		
-		
-		return $data; 
+
 	}
 	public function UpdataCordList(){
 	
@@ -116,10 +113,10 @@ class AjaxController extends Controller {
                  ->where('readers.id', '=',Request::input('id'))
 				 ->where('borrowing_record.isreturn','=',0);
         })
-            ->join('book', 'book.id', '=', 'borrowing_record.Book_id')
+            ->join('book', 'book.Book_id', '=', 'borrowing_record.Book_id')
             ->select('book.Book_name', 'readers.name', 'borrowing_record.Borrowing_Record_date','borrowing_record.id','borrowing_record.havetoreturn')
             ->get();
-	//dd($record);
+	
 	return $record; 
 
 

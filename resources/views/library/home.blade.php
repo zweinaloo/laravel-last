@@ -25,8 +25,7 @@
 	
 	<link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
     
-	@section('head')
-	 @show
+	
   </head>
   
   
@@ -257,7 +256,8 @@
     <script type="text/javascript" src="/js/realm.js"></script>
     <!-- 提示框-右上角 -->
 	<!--<script type="text/javascript" src="/js/jquery.slimscroll.min.js"></script>  禁用先-->
-
+@section('head')
+   @show
 
 	
 	<script type="text/javascript" src="/js/tidyTime.js"></script>

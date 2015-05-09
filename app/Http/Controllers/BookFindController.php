@@ -20,16 +20,13 @@ class BookFindController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function OnExact()
-	{
+	public function OnExact(){
 		//
-	
 		$find =array(
 		"find"=>Request::input('find'),
-	
 		"style"=>Request::input('style'),	
 		);
-		//根据style类型查找 1,ID 2,书名 3,作者
+		//赂霉戮脻style脌脿脨脥虏茅脮脪 1,ID 2,脢茅脙没 3,脳梅脮脽
 		$book=null;
 		
 		switch ($find["style"])
@@ -50,29 +47,26 @@ class BookFindController extends Controller {
 		return view('library.bookFind.bookFindOnExact')->withBook($book);
 	}
 	
-	public function OnExactShow()
-	{
+	public function OnExactShow(){
 		$book=null;
 		return view('library.bookFind.bookFindOnExact')->withBook($book);
 	}
 
-	public function onFuzzyShow()
-	{
+	public function onFuzzyShow(){
 		//$book=null;
 		
 		$book=Book::all();
 		return view('library.bookFind.bookFindOnFuzzy')->withBook($book);
 	}
 	
-	public function onFuzzy()
-	{
+	public function onFuzzy(){
 		
 		$find =array(
 		"find"=>Request::input('find'),
 	
 		"style"=>Request::input('style'),	
 		);
-		//根据style类型查找 1图书室，2类型
+		//赂霉戮脻style脌脿脨脥虏茅脮脪 1脥录脢茅脢脪拢卢2脌脿脨脥
 		$book=null;
 		
 		switch ($find["style"])
@@ -92,6 +86,17 @@ class BookFindController extends Controller {
 		
 		return view('library.bookFind.bookFindOnFuzzy')->withBook($book);
 	}
-	
+
+	/**
+	 * 绮剧‘鏌ユ壘Ajax DataTables 
+	 * @author Zwei
+	 * return json 
+	 */
+	public function AjaxOnExact(){
+		
+	  $date=array('dd','dd');
+	  
+		return $data;
+	}
 
 }

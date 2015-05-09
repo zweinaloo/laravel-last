@@ -25,6 +25,6 @@ class Return_record extends Model {
 	
 	 public function book()
     {
-        return $this->hasOne('App\Book','id','Book_id');
+        return $this->hasOne('App\Book','Book_id','Book_id');
     }
 }
