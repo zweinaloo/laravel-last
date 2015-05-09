@@ -11,8 +11,24 @@ use App\Borrowing_record,App\Book,App\Return_record,App\Reader;
 use DB;
 use Auth;
 class BorrowRecordMangerController extends Controller {
-	
-	
+	/**
+	 * 续借功能
+	 * @author Zwei
+	 * @param  $renew_preiod 可续借数量
+	 * @param $renew_change 续订后时间
+	 */
+	public function Renew($ip){
+		//1.查询当前用户的书籍可续借天数数量
+		$renew_period = Auth::user()->style->Borrowing_period;
+		//dd($renew_period);
+		//2.查询预订的书籍，归还时间增加
+		$renew =Borrowing_record::Find($ip);
+		$renew_change=Carbon::parse($renew->havetoreturn)->addDay($renew_period);
+		$renew->havetoreturn=$renew_change;
+		$renew->save();
+		//3.返回原界面
+		return redirect()->back();
+	}
 	
 	public function Show(){
 		$book=null;$data=null;$data1=null;
@@ -116,9 +132,7 @@ class BorrowRecordMangerController extends Controller {
 	}
 
 	
-	public function Renew($ip){
-		return $ip;
-	}
+	
 	
 }
 

@@ -123,10 +123,10 @@ Route::group(['prefix'=>'Ajax'],function(){
 //借阅记录查询管理
 Route::group(['prefix'=>'BorrowRecord'],function(){
 	
-	Route::get('/{ip}', 'BorrowRecordMangerController@Show');
+	Route::get('/{id}', 'BorrowRecordMangerController@Show');
 	Route::post('/SearchRecord', 'BorrowRecordMangerController@SearchRecord');	
 	Route::get('/SearchRecord/self', 'BorrowRecordMangerController@SearchRecordSelf');	
-	Route::get('/{id}/Renew', 'BorrowRecordMangerController@Renew');
+	Route::get('Renew/{ip}', 'BorrowRecordMangerController@Renew');
 });
 
 

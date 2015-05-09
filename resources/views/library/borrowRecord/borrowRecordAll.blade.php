@@ -120,7 +120,7 @@
                         </a>
                         <ul class="dropdown-menu pull-right">
                           
-                          <li><a href="/BorrowRecord/{{$data->id}}/Renew/"><i class="icon-edit"></i> 续借</a></li>
+                          <li><a href="/BorrowRecord/Renew/{{$data->id}}"><i class="icon-edit"></i> 续借</a></li>
                         
                         </ul>
                       </div>
