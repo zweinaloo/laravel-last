@@ -147,7 +147,7 @@ class ReaderController extends Controller {
 		$reader->name=Request::input('realname');
 		$reader->phoneno =Request::input('phoneno');
 		$reader->mark= Request::input('remark');
-		$reader->birthday=Request::input('birth');
+		$reader->birth=Request::input('birth');
 		$reader->class_id=Request::input('Tclass');
 		
 

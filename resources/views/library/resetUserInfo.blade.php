@@ -67,11 +67,11 @@
                     <label class="control-label">用户权限：</label>
                     <div class="controls">
 								<select class="span3" name="roles">
-								<option selected="selected" value="{{$user->style->id}}">{{$user->style->style_name}}</option>
+								<option selected="selected" value="{{$user->style->id}}">{{$user->style->name}}</option>
 								 @if ((Auth::user()->user_roles_id)<2)
 								@foreach ($style as $style)
 									
-								<option value="{{$style->id}}">{{$style->style_name}}</option>
+								<option value="{{$style->id}}">{{$style->name}}</option>
 								
 								@endforeach
 									  @endif
@@ -142,7 +142,7 @@
 								
 								
 								<select class="span3" >
-								<option selected="selected">{{$user->reader->TClass->Professional->Department->department_name}}</option>
+								<option selected="selected">{{$user->reader->TClass->Professional->Department->Dep_name}}</option>
 													
 								</select>
 							</div>
@@ -157,7 +157,7 @@
                     <label class="control-label">生日：</label>
                       <div class="controls">
                         
-					<input type="text"  name="birth" id="datepicker" value="{{$user->reader->birthday}}">
+					<input type="text"  name="birth" id="datepicker" value="{{$user->reader->birth}}">
                       </div>
                   </div>
 
