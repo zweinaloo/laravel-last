@@ -47,7 +47,7 @@
                 <tbody>
 				@foreach($book as $book)
                  <tr>
-                    <td>{{$book->id}}</td>
+                    <td>{{$book->Book_id}}</td>
                     <td>{{$book->Book_name}}</td>
                     <td>{{$book->writer}}</td>
                     <td><span class="label label-success">在库</span></td>
@@ -59,7 +59,7 @@
                         </a>
                         <ul class="dropdown-menu pull-right">
                           
-                          <li><a href="/BookManger/updateBook/{{$book->id}}"><i class="icon-edit"></i> 编辑</a></li>
+                          <li><a href="/BookManger/updateBook/{{$book->Book_id}}"><i class="icon-edit"></i> 编辑</a></li>
                           <li><a href="/BookManger/deleteBook/{{$book->id}}" ><i class="icon-trash"></i> 删除</a></li>
                         </ul>
                       </div>

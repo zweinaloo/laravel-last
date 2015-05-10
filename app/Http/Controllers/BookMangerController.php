@@ -15,6 +15,8 @@ class BookMangerController extends Controller {
 	public function BookAddShow()
 	{	$style=Book_style::all();
 		$shelf=BookShelf::all();
+		$bookroom=BooKRoom::all();
+		//dd($shelf[0]->BookRoom->Book_room_name);
 		return view('library.bookManger.bookMangerAdd')->withstyle($style)->withShelf($shelf);
 	}
 	
@@ -31,9 +33,9 @@ class BookMangerController extends Controller {
 									'style_id' => Request::input('style'),
 									'mark' => Request::input('mark')
 										]);
-		$style=Book_style::all();
-		$shelf=BookShelf::all();
-		return view('library.bookManger.bookMangerAdd')->withstyle($style)->withShelf($shelf);
+		$book->save();
+		//dd($book);
+		return redirect()->back();
 	}
 	
 	public function BookUpdateShow()
@@ -67,7 +69,7 @@ class BookMangerController extends Controller {
 		}
 		$style=Book_style::all();
 		$shelf=BookShelf::all();
-		return view("library.bookManger.bookMangerUpdate")->withBook($book)->withFind($find)->withstyle($style)->withShelf($shelf)->withMsg($msg);
+		return view("library.bookManger.bookMangerUpdate")->withBook($book)->withFind($find)->withstyle($style)->withShelf($shelf);
 	
 	}
 	

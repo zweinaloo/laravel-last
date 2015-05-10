@@ -1,4 +1,4 @@
-﻿@extends('library.home')
+@extends('library.home')
 
 @section('mainwindow')
 		 <!--@parent-->
@@ -14,8 +14,6 @@
             
 			</div>
         </div>  
-
-
 		<!--修改个人信息-->
 		<div class="row-fluid">
           <div class="widget widget-padding span12">

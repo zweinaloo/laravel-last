@@ -105,9 +105,9 @@
                     <label class="control-label">书架位置</label>
                     <div class="controls">
 								<select class="span5" name="shelf">
-								<option selected="selected" value="{{ $book->shelf->id or '' }}">{{$book->shelf->BookRoom->name or ''}}-{{ $book->shelf->name or '' }}</option>
+								<option selected="selected" value="{{ $book->shelf->id or '' }}">{{$book->shelf->BookRoom->Book_room_name or ''}}-{{ $book->shelf->Book_shelf_name or '' }}</option>
 								@foreach ($shelf as $shelf)
-								<option value="{{ $shelf->id }}">{{$shelf->BookRoom->name}}-{{ $shelf->name or '' }}</option>
+								<option value="{{ $shelf->id }}">{{$shelf->BookRoom->Book_room_name}}-{{ $shelf->Book_shelf_name or '' }}</option>
 								@endforeach
 								
 								</select>

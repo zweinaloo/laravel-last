@@ -17,7 +17,8 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
- 
+ @section('head')
+   @show
 	<link href="/css/select2.css" rel="stylesheet">
 	<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 	
@@ -256,8 +257,7 @@
     <script type="text/javascript" src="/js/realm.js"></script>
     <!-- 提示框-右上角 -->
 	<!--<script type="text/javascript" src="/js/jquery.slimscroll.min.js"></script>  禁用先-->
-@section('head')
-   @show
+
 
 	
 	<script type="text/javascript" src="/js/tidyTime.js"></script>

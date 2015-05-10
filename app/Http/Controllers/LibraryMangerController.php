@@ -40,7 +40,7 @@ class LibraryMangerController extends Controller {
 	//添加图书室类型
 	public function Add(LibraryRequest $request){
 		$room=new BookRoom;
-		$room->name=$request->libraryname;
+		$room->Book_room_name=$request->libraryname;
 		
 		$room->save();
 		
@@ -50,7 +50,7 @@ class LibraryMangerController extends Controller {
 	//更新
 	public function Update(LibraryRequest $request){
 		$room= BookRoom::find($request->name);
-		$room->name=$request->libraryname;
+		$room->Book_room_name=$request->libraryname;
 		$room->save();
 		return redirect()->back();
 	}
@@ -65,7 +65,7 @@ class LibraryMangerController extends Controller {
 	public function Add1(LibraryRequest $request){
 		$shelf=new BookShelf;
 		$shelf->name=$request->shelfname;
-		$shelf->room_id=$request->room;
+		$shelf->Book_shelf_name=$request->room;
 		//dd($shelf);
 		$shelf->save();
 		return redirect()->back();
@@ -73,7 +73,7 @@ class LibraryMangerController extends Controller {
 	//更新
 	public function Update1(LibraryRequest $request){
 		$shelf= BookShelf::find($request->shelf);
-		$shelf->name=$request->shelfname;
+		$shelf->Book_shelf_name=$request->shelfname;
 		$shelf->save();
 		return redirect()->back();
 	}

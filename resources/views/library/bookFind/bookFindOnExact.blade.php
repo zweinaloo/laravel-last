@@ -1,4 +1,4 @@
-﻿@extends('library.home')
+@extends('library.home')
 
 @section('head')
 <!-- jQuery -->
@@ -7,18 +7,18 @@
 <!-- DataTables -->
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
 <script type='text/javascript' src='/js/myjs.js'></script>
-@stop
+@stop   
 @section('mainwindow')
 		 <!--@parent-->
       <div class="main_container" id="dashboard_page">
         <div class="row-fluid">
-        </div>  
+        <div>  
 		
 		<ul class="breadcrumb">
             <li><a href="/home">主页</a> <span class="divider">/</span></li>
             <li><a href="/BookManger/">查找书籍</a> <span class="divider">/</span></li>
             <li class="active">精确查找</li>
-          </ul>
+          </ul></div>
 		 <div class="row-fluid">
           <div class="widget widget-padding span12">
             <div class="widget-header"><i class="icon-list-alt"></i><h5>查询</h5></div>
@@ -127,9 +127,9 @@
 		
 
   
-		  
+@stop 
             
 		
-				
+
       
-@stop
+

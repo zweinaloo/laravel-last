@@ -26,13 +26,13 @@ class BookFindController extends Controller {
 		"find"=>Request::input('find'),
 		"style"=>Request::input('style'),	
 		);
-		//赂霉戮脻style脌脿脨脥虏茅脮脪 1,ID 2,脢茅脙没 3,脳梅脮脽
+		//根据style选择查询方式
 		$book=null;
 		
 		switch ($find["style"])
 		{
 		case "1":
-		$book=Book::where('id', '=',$find["find"])->get();
+		$book=Book::where('Book_id', '=',$find["find"])->get();
 		break;  
 		case "2":
 		//$book=Book::where('publish', '=',$find["find"])->get();
@@ -66,13 +66,13 @@ class BookFindController extends Controller {
 	
 		"style"=>Request::input('style'),	
 		);
-		//赂霉戮脻style脌脿脨脥虏茅脮脪 1脥录脢茅脢脪拢卢2脌脿脨脥
+		//
 		$book=null;
-		
+			//根据style选择查询方式
 		switch ($find["style"])
 		{
 		case "1":
-		$book=Book::where('id', '=',$find["find"])->get();
+		$book=Book::where('Book_id', '=',$find["find"])->get();
 		break;  
 		case "2":
 		//$book=Book::where('publish', '=',$find["find"])->get();
@@ -87,16 +87,6 @@ class BookFindController extends Controller {
 		return view('library.bookFind.bookFindOnFuzzy')->withBook($book);
 	}
 
-	/**
-	 * 绮剧‘鏌ユ壘Ajax DataTables 
-	 * @author Zwei
-	 * return json 
-	 */
-	public function AjaxOnExact(){
-		
-	  $date=array('dd','dd');
-	  
-		return $data;
-	}
+	
 
 }
