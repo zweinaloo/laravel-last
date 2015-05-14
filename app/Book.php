@@ -18,18 +18,14 @@ class Book extends Model {
 						   'keyword',
 						   'mark'];
 	
-	
+	protected $casts = ['id' => 'integer',];
 	public function style()
 	{
-	
 		return $this->hasOne('App\Book_style','id','style_id');
 	}
-	protected $casts = [
-    'id' => 'integer',
-];
+
 	public function shelf()
 	{
-	
 		return $this->belongsTo('App\BookShelf','shelf_id','id');
 	}
 	

@@ -14,7 +14,7 @@ use DB;
 class UserMangerController extends Controller {
 	
 	
-	//修改权限组
+	//脨脼赂脛脠篓脧脼脳茅
 	public function UpdateRoles(){
 		$style= ReaderStyle::Find(Request::input("name"));
 		//dd($style,Request::input("name"));
@@ -29,7 +29,7 @@ class UserMangerController extends Controller {
 	}
 	
 	
-	//添加权限组
+	//脤铆录脫脠篓脧脼脳茅
 	public function AddRoles(){
 		$style = new ReaderStyle;
 		$style->name=Request::input("name");

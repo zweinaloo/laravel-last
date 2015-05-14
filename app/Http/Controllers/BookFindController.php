@@ -26,7 +26,7 @@ class BookFindController extends Controller {
 		"find"=>Request::input('find'),
 		"style"=>Request::input('style'),	
 		);
-		//根据style选择查询方式
+		//鏍规嵁鏌ヨ绫诲瀷杩涜鏌ヨ
 		$book=null;
 		
 		switch ($find["style"])
@@ -68,7 +68,7 @@ class BookFindController extends Controller {
 		);
 		//
 		$book=null;
-			//根据style选择查询方式
+			//赂霉戮脻style脩隆脭帽虏茅脩炉路陆脢陆
 		switch ($find["style"])
 		{
 		case "1":
