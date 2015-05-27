@@ -61,20 +61,20 @@ class BorrowRecordMangerController extends Controller {
 				 //->where('borrowing_record.isreturn','=',0);
 
         })
-            ->leftjoin('book','book.Book_id' , '=', 'borrowing_record.Book_id')
+        ->leftjoin('book','book.Book_id' , '=', 'borrowing_record.Book_id')
 		->leftjoin('book_style','book_style.id','=','book.style_id')
-		->join('book_shelf','book_shelf.id','=','book.shelf_id')
+		->leftjoin('book_shelf','book_shelf.id','=','book.shelf_id')
 		->leftjoin('book_room','book_room.id','=','book_shelf.room_id')
           // ->select('book.*','borrowing_record.*','book_style.*','bookshelf.*','book_room.*')
-			->select('book.Book_id','book.Book_name','book_style.Book_style_name','book_shelf.Book_shelf_name','borrowing_record.*')
+			->select('book.Book_id','book.Book_name','book_style.Book_style_name','book_shelf.*','book_room.*','borrowing_record.*')
 			->get();
-			($data);
+			//$data=Borrowing_record::find("13");
+			//dd($data);
 			//归还记录
 		$data1=DB::table('return_record')       
 			->join('readers', function($join){
             $join->on( 'readers.id', '=', 'return_record.Return_record_reader_id')
                  ->where('readers.id', '=',Request::input('find'));
-		
 
         })
             ->join('book', 'book.Book_id', '=', 'return_record.Book_id')

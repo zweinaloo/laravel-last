@@ -15,37 +15,37 @@ class AddBookTableSeeder extends Seeder
     	 */
     	 $book_style=array('计算机类','文学类','英语类','数学类','经济类');
     	 $len_style=sizeof($book_style);
-    	// for($id=0;$id<$len_style;$id++){
-    	// 	Book_style::create([
-    	// 		'Book_style_name' =>$book_style[$id]
-    	// 	]);
-    	// }
+    	for($id=0;$id<$len_style;$id++){
+    		Book_style::create([
+    			'Book_style_name' =>$book_style[$id]
+    		]);
+    	}
 
 
     	/**
     	 * 添加图书室数据
     	 */	
-    	 // $room=array('第一图书室','第二图书室','计算机图书室','文学图书室','周刊图书室','杂志图书室','经济图书室','英语图书室');
-    	 // $len_room=sizeof($room);
-    	// for($id=0;$id<$len_room;$id++){
-    	// 	BookRoom::create([
-    	// 		'Book_room_name' => $room[$id]
-    	// 	]);
-    	// }
+    	 $room=array('第一图书室','第二图书室','计算机图书室','文学图书室','周刊图书室','杂志图书室','经济图书室','英语图书室');
+    	 $len_room=sizeof($room);
+    	for($id=0;$id<$len_room;$id++){
+    		BookRoom::create([
+    			'Book_room_name' => $room[$id]
+    		]);
+    	}
     	/**
     	 * 添加书架数据
     	 */
     	 $shelf=array('一号书架','二号书架','三号书架','四号书架','五号书架','六号书架');
     	 $len_shelf=sizeof($shelf);
-    	// for($id=0;$id<$len_room;$id++){
-    	// 	for($sid=0;$sid<$len_shelf;$sid++){
-    	// 		BookShelf::create([
-    	// 			'Book_shelf_name'=>$shelf[$sid],
-    	// 			'room_id' =>$id+1
-    	// 			]);
-    	// 	}
+    	for($id=0;$id<$len_room;$id++){
+    		for($sid=0;$sid<$len_shelf;$sid++){
+    			BookShelf::create([
+    				'Book_shelf_name'=>$shelf[$sid],
+    				'room_id' =>$id+1
+    				]);
+    		}
 
-    	// }
+    	}
     	/**
     	 * 添加书籍数据
     	 * @var integer

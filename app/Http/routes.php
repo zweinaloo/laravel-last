@@ -14,6 +14,7 @@
 
 
 Route::get('/', 'WelcomeController@test');
+Route::get('/home', 'WelcomeController@login');
 
 //Route::get('/test', 'WelcomeController@test');
 

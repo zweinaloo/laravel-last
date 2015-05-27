@@ -1,4 +1,4 @@
-﻿<!--@parent    -->
+<!--@parent    -->
                         
         
 @extends('library.home')
@@ -120,10 +120,10 @@
               </thead>
               <tbody>
                 <tr>
-                  <td id="tdid"><p id="TDid">测试</p></td>
-                  <td id="tdname"><p id="TDname">测试</p></td>
-                  <td id="tdwriter"><p id="TDwriter">测试</p></td>
-                  <td id="tdinfo"><span class="label " id="Spaninfo"><p id="TDinfo">测试</p></span></td>
+                  <td id="tdid"><p id="TDid"></p></td>
+                  <td id="tdname"><p id="TDname"></p></td>
+                  <td id="tdwriter"><p id="TDwriter"></p></td>
+                  <td id="tdinfo"><span class="label " id="Spaninfo"><p id="TDinfo"></p></span></td>
 				  <!--<span class="label">已借出</span>-->
                   <td>
                     <button type="button" class="btn" id="btnNewBorrowRecord">借阅</button>

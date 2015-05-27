@@ -49,6 +49,12 @@ class WelcomeController extends Controller {
 		return view('library/main')->withRole($role);
 	}
 
+	public function login()
+	{	
+
+		return redirect("/auth/login");
+	}
+
 	
 
 }

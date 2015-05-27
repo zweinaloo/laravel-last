@@ -1,11 +1,11 @@
-﻿@extends('library.home')
+@extends('library.home')
 
 @section('head')
 <!-- jQuery -->
-<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" charset="utf8" src="/js/js1/jquery-1.10.2.min.js"></script>
   
 <!-- DataTables -->
-<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="/js/js1/1.10.5/js/jquery.dataTables.js"></script>
 <script type='text/javascript' src='/js/myjs.js'></script>
 @stop
 @section('mainwindow')
@@ -19,38 +19,7 @@
             <li><a href="/BookManger/">查找书籍</a> <span class="divider">/</span></li>
             <li class="active">模糊查找</li>
           </ul>
-<!--<div class="row-fluid">
-          <div class="widget widget-padding span12">
-            <div class="widget-header"><i class="icon-list-alt"></i><h5>查询</h5></div>
-            <div class="widget-body" style="height: 120px;">
-              <div class="widget-forms clearfix">
-                
-				<form class="form-inline" id="F_form"   action="/BookFind/onFuzzySearch">
-			
-				<label class="control-label">查询信息：</label>
-                  <input type="text" name="find" class="span2" placeholder="查询信息" value="{{$find["find"] or ''}}">
-				  <label class="control-label ">查询类型：</label>
-                 <select class="span2 selectpicker show-tick" name="style">
-								<option value="1">按图书室</option>
-								
-								<option value="2">按图书类型</option>								
-								
-								</select>
-                  <button type="submit" class="btn btn-success">查找</button>
-                </form>
-                <form class="form-inline" style="margin-top: 15px;">
-					
-                </form>
-				
-				</div>
-            </div>
-          </div>
-		 </div>
-	-->	  
-		  
-		  
-		  
-	
+
 
 			<div class="row-fluid">
           <div class="widget widget-padding span12">
@@ -69,24 +38,21 @@
                     <th>书号</th>
                     <th>书名</th>
                     <th>作者</th>
-					<th>类型</th>
-					<th>位置</th>
+          					<th>类型</th>
+          					<th>位置</th>
                     <th>状态</th>
-					
                     <th>操作</th>
-					
-					
                   </tr>
                 </thead>
                 <tbody>
 				@if($book)
 				@foreach($book as $book )
                  <tr>
-                    <td>{{$book->id }}</td>
+                    <td>{{$book->Book_id }}</td>
                     <td>{{$book->Book_name }}</td>
                     <td>{{$book->writer }}</td>
 					<td>{{$book->style->Book_style_name }}</td>
-					 <td>{{$book->shelf->BookRoom->name }}</td>
+					 <td>{{$book->shelf->BookRoom->Book_room_name }}-{{$book->shelf->Book_shelf_name }}</td>
 					@if ($book->count === 0)
 						<td><span class="label">已借出</span></td>                    
                     @else
@@ -115,16 +81,4 @@
             </div> <!-- /widget-body -->
           </div> <!-- /widget -->
         </div> <!-- /row-fluid -->
-     
-		
-	
-		
-		
-
-  
-		  
-            
-		
-				
-      
 @stop

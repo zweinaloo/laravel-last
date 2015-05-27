@@ -1,9 +1,6 @@
 <?php namespace App\Http\Controllers;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
-
 use Illuminate\Support\Facades\Request;
 use App\Book;
 use App\Book_style;
@@ -11,8 +8,7 @@ use App\BookRoom;
 use App\BookShelf;
 
 class BookMangerController extends Controller {
-
-	public function BookAddShow()
+		public function BookAddShow()
 	{	$style=Book_style::all();
 		$shelf=BookShelf::all();
 		$bookroom=BooKRoom::all();
@@ -20,7 +16,6 @@ class BookMangerController extends Controller {
 		return view('library.bookManger.bookMangerAdd')->withstyle($style)->withShelf($shelf);
 	}
 	
-
 		public function BookAdd()
 	{	
 		
@@ -125,8 +120,6 @@ class BookMangerController extends Controller {
 	
 	public function BookDelete($id)
 	{	
-		
-		
 		Book::destroy($id);
 		$book=Book::all();
 		//重定向上一连接

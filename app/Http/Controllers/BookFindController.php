@@ -68,11 +68,11 @@ class BookFindController extends Controller {
 		);
 		//
 		$book=null;
-			//¸ù¾ÝstyleÑ¡Ôñ²éÑ¯·½Ê½
+			//根据查询类型进行查询
 		switch ($find["style"])
 		{
 		case "1":
-		$book=Book::where('Book_id', '=',$find["find"])->get();
+		$book=Book::where('Book_id', '=',$find["find"])->get()-first();
 		break;  
 		case "2":
 		//$book=Book::where('publish', '=',$find["find"])->get();

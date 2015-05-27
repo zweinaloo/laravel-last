@@ -35,8 +35,10 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
+
           <div class="logo"> 
-            <img src="/img/logo.png" alt="Realm Admin Template">
+            <img src="/img/logo-last.png" alt="图书管理系统">
+
           </div>
            <a class="btn btn-navbar visible-phone" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
@@ -51,8 +53,8 @@
 			
           <div class="top-menu visible-desktop">
             <ul class="pull-left">
-              <li><a id="messages" data-notification="2" href="#"><i class="icon-envelope"></i> 消息</a></li>
-              <li><a id="notifications" data-notification="3" href="#"><i class="icon-globe"></i> 通知</a></li>
+             <!-- <li><a id="messages" data-notification="2" href="#"><i class="icon-envelope"></i> 消息</a></li>
+              <li><a id="notifications" data-notification="3" href="#"><i class="icon-globe"></i> 通知</a></li>-->
             </ul>
 			
 
@@ -86,7 +88,7 @@
 		  
 		  
 		  
-          <a href="/User/resetUserInfo"><i class="icon-cog"></i> 设置</a>        
+         <!-- <a href="/User/resetUserInfo"><i class="icon-cog"></i> 设置</a>  -->      
         </div>
        
 		  
@@ -228,7 +230,7 @@
       <!-- /Side menu -->
 	 @section('mainwindow')
 			<div class="main_container" id="dashboard_page">
-			test 测试 
+			
 			</div>
 			
 		@show
@@ -243,7 +245,7 @@
     <script type="text/javascript" src="/js/raphael-min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.js"></script>
     <script type="text/javascript" src='/js/sparkline.js'></script>
-    <script type="text/javascript" src='/js/morris.min.js'></script>
+   <script type="text/javascript" src='/js/morris.min.js'></script>
     <script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>   
     <script type="text/javascript" src="/js/jquery.masonry.min.js"></script>   
     <script type="text/javascript" src="/js/jquery.imagesloaded.min.js"></script>   

@@ -1,11 +1,10 @@
 @extends('library.home')
 @section('head')
 <!-- jQuery -->
-<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-
+<script type="text/javascript" charset="utf8" src="/js/js1/jquery-1.10.2.min.js"></script>
   
 <!-- DataTables -->
-<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="/js/js1/1.10.5/js/jquery.dataTables.js"></script>
 		<script src="/js/myjs/UserManger.js" type="text/javascript"></script>
 @stop
 @section('mainwindow')
@@ -55,7 +54,7 @@
 					<td>{{$user->email or ''}}</td>
                     <td title="Click to select engine version">******</td>
 					
-					<td>{{$user->style->name or ''}}</td>
+					<td>{{$user->style->style_name or ''}}</td>
                    <!-- <td><span class="label label-success"></span></td>-->
                     <td>
                       <div class="btn-group">

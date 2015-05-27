@@ -1,11 +1,11 @@
-﻿@extends('library.home')
+@extends('library.home')
 
 @section('head')
 <!-- jQuery -->
-<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" charset="utf8" src="/js/js1/jquery-1.10.2.min.js"></script>
   
 <!-- DataTables -->
-<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="/js/js1/1.10.5/js/jquery.dataTables.js"></script>
 <script type='text/javascript' src='/js/myjs.js'></script>
 @stop
 @section('mainwindow')
@@ -23,8 +23,8 @@
 		 <div class="row-fluid">
           <div class="widget widget-padding span12">
             <div class="widget-header"><i class="icon-list-alt"></i><h5>查询</h5></div>
-            <div class="widget-body" >
-              <div class="widget-forms clearfix">
+            <div class="widget-body" style="height: 80px;">
+              <div class="widget-forms clearfix "  >
                  @if (count($errors) > 0)
 						<div class="alert alert-danger">
 							<strong>错误!</strong> 你的输入有些问题.<br><br>
@@ -41,7 +41,8 @@
                   <input type="text" name="find" class="span2" placeholder="查询信息" value="{{$find['find'] or ''}}">
 				  <label class="control-label ">查询类型：</label>
                  <select class="span2 selectpicker show-tick" >
-								<option value="1">按学号</option>												
+								<option value="1">按学号</option>
+								<option value="1">按姓名</option>													
 								</select>
                   
                 </form>	
@@ -110,8 +111,7 @@
 					<td>{{$data->Book_style_name }}</td>
 					 <td>{{$data->Book_shelf_name}}</td>
 					<td>{{$data->Borrowing_Record_date }}</td>
-					<td>{{$data->havetoreturn}}</td>
-			
+					<td>{{$data->havetoreturn}}</td>			
 					<td>
                       <div class="btn-group">
                         <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">

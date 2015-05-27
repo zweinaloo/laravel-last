@@ -2,10 +2,10 @@
 
 @section('head')
 <!-- jQuery -->
-<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" charset="utf8" src="/js/js1/jquery-1.10.2.min.js"></script>
   
 <!-- DataTables -->
-<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="/js/js1/1.10.5/js/jquery.dataTables.js"></script>
 <script type='text/javascript' src='/js/myjs.js'></script>
 @stop   
 @section('mainwindow')
@@ -22,7 +22,7 @@
 		 <div class="row-fluid">
           <div class="widget widget-padding span12">
             <div class="widget-header"><i class="icon-list-alt"></i><h5>查询</h5></div>
-            <div class="widget-body" style="height: 120px;">
+            <div class="widget-body" style="height: 80px;">
               <div class="widget-forms clearfix">
                 
 				<form class="form-inline" id="search"   action="/BookFind/onExactSearch">			
